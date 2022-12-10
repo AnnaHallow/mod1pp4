@@ -53,6 +53,18 @@ public class SearchDomain {
 	 */
 	private List<String> buildDomain() throws SearchDomainException {
 		List<String> files = new ArrayList<>();
+		String[] folderFiles = folder.split(" ");
+		try {
+			for (int i = 0; i < folderFiles.length; i++) {
+				files.add(folderFiles[i]);
+			}
+		}
+		catch(Exception e){
+			throw new SearchDomainException("An error has occurred.");
+			}
+
+
+
 		// Step Three: Complete the buildDomain method
 
 

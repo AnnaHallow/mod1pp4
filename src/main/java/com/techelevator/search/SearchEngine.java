@@ -1,5 +1,7 @@
 package com.techelevator.search;
 
+import com.techelevator.TELog;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -23,6 +25,19 @@ public class SearchEngine {
 	
 	public void indexFiles() throws SearchEngineException, Exception {
 		// Step Five: Index files
+		sd.getFiles();
+		int fileID = 0;
+		for(String file : sd.getFiles()) {
+			 File dataFile = new File(file);
+			Scanner dataInput = new Scanner(dataFile);
+			fileID += 1;
+			while(dataInput.hasNextLine()) {
+				String lineOfInput = dataInput.nextLine();
+				String line = lineOfInput;
+				indexWords(fileID, line);
+			}
+		}
+		TELog.log(indexedWordsToString());
 
 
 	}
