@@ -29,7 +29,9 @@ public class SearchEngine {
 		int fileID = 0;
 		for(String file : sd.getFiles()) {
 			 File dataFile = new File(file);
+			 //file not found exception: try/catch HERE
 			Scanner dataInput = new Scanner(dataFile);
+
 			fileID += 1;
 			while(dataInput.hasNextLine()) {
 				String lineOfInput = dataInput.nextLine();
